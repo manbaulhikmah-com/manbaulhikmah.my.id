@@ -23,7 +23,7 @@ let fontSize = 28;
 
 readings.forEach((name, index) => {
   const card = document.createElement("button");
-
+  card.type = "button";
   card.className = "reading-card";
   card.innerHTML = `
     <span>${String(index + 1).padStart(2, "0")}</span>
@@ -45,19 +45,20 @@ function showReading() {
 
   content.innerHTML = `
     <p class="placeholder">
-      Tempat isi ${readings[currentIndex]} akan ditambahkan di sini.
+      Tempat isi <strong>${readings[currentIndex]}</strong> akan ditambahkan di sini.
     </p>
   `;
 
+  document.querySelectorAll(".reading-card").forEach((card, index) => {
+    card.classList.toggle("selected", index === currentIndex);
+  });
+
   document.getElementById("prev").disabled = currentIndex === 0;
-  document.getElementById("next").disabled =
-    currentIndex === readings.length - 1;
+  document.getElementById("next").disabled = currentIndex === readings.length - 1;
 }
 
 document.getElementById("back").addEventListener("click", () => {
-  document.getElementById("daftar").scrollIntoView({
-    behavior: "smooth"
-  });
+  document.getElementById("daftar").scrollIntoView({ behavior: "smooth" });
 });
 
 document.getElementById("prev").addEventListener("click", () => {

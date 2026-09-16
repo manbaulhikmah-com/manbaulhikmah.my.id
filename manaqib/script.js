@@ -131,6 +131,7 @@ function showReading() {
 
   if (currentIndex === 1) {
     content.innerHTML = `<div class="arabic-text">${yasinText}</div>`;
+    content.style.setProperty("--size", `${fontSize}px`);
   } else {
     content.innerHTML = `
       <p class="placeholder">
@@ -158,11 +159,11 @@ document.getElementById("next").addEventListener("click", () => {
 });
 document.getElementById("minus").addEventListener("click", () => {
   fontSize = Math.max(18, fontSize - 2);
-  content.style.fontSize = `${fontSize}px`;
+  content.style.setProperty("--size", `${fontSize}px`);
 });
 document.getElementById("plus").addEventListener("click", () => {
   fontSize = Math.min(50, fontSize + 2);
-  content.style.fontSize = `${fontSize}px`;
+  content.style.setProperty("--size", `${fontSize}px`);
 });
 document.getElementById("night").addEventListener("click", () => {
   document.body.classList.toggle("night-mode");

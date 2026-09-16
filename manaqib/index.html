@@ -1,86 +1,72 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Manaqib Syeh Abdul Qodir Al-Jailani | Manbaul Hikmah</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manaqib Syeh Abdul Qodir Al-Jailani | Manbaul Hikmah</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="wrap nav">
+<header class="site-header">
+  <div class="wrap header-inner">
     <a class="brand" href="#home">
-      <b>م</b>
-      <span>Manbaul Hikmah<small>Kitab Digital Manaqib</small></span>
+      <img src="logo-pondok.jpg" alt="Logo Pondok Pesantren Manbaul Hikmah">
+      <span class="brand-copy"><small>PONDOK PESANTREN</small><strong>MANBAUL HIKMAH</strong><em>Luwungragi · Brebes · Jawa Tengah</em></span>
     </a>
     <button id="menu" class="menu-button" aria-label="Buka menu">☰</button>
     <nav>
-      <a href="#home">Beranda</a>
+      <a class="active" href="#home">⌂ &nbsp; Beranda</a>
       <a href="#pengantar">Pengantar</a>
       <a href="#daftar">Daftar Bacaan</a>
+      <a href="#tentang">Tentang</a>
+      <button id="night" class="nav-night" type="button" aria-label="Mode malam">☾</button>
     </nav>
   </div>
 </header>
 
 <main>
 <section id="home" class="hero">
-  <div class="wrap">
-    <p class="eyebrow">PONDOK PESANTREN MANBAUL HIKMAH</p>
-    <h1>Manaqib Syeh Abdul<br>Qodir Al-Jailani</h1>
-    <p>Bacaan Manaqib versi Pondok Pesantren Manbaul Hikmah dalam bentuk kitab digital.</p>
-    <a class="btn" href="#daftar">Mulai Membaca</a>
-  </div>
-</section>
-
-<section id="pengantar" class="section">
-  <div class="wrap intro">
-    <div class="arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
-    <h2>Pengantar</h2>
-    <p>Halaman ini disediakan sebagai media digital untuk membaca rangkaian Manaqib Syeh Abdul Qodir Al-Jailani versi Pondok Pesantren Manbaul Hikmah.</p>
-  </div>
-</section>
-
-<section id="daftar" class="section soft">
-  <div class="wrap">
-    <div class="heading">
-      <p class="eyebrow">DAFTAR ISI</p>
-      <h2>Rangkaian Bacaan Manaqib</h2>
+  <div class="hero-pattern"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">KITAB DIGITAL</p>
+      <h1>Manaqib Syeh Abdul Qodir Al-Jailani</h1>
+      <p>Bacaan Manaqib versi Pondok Pesantren Manbaul Hikmah</p>
+      <a class="hero-button" href="#daftar">Mulai Membaca →</a>
     </div>
-    <div id="cards" class="cards"></div>
+    <div class="hero-quote">“Dengan ilmu, kita dekat kepada Allah.<br>Dengan adab, kita mulia di sisi-Nya.”</div>
   </div>
 </section>
 
-<section id="bacaan" class="section">
-  <div class="wrap panel">
-    <div class="reading-head">
-      <div>
-        <p class="eyebrow">HALAMAN BACAAN</p>
-        <h2 id="title">Bacaan Hadroh</h2>
+<section id="pengantar" class="intro-section">
+  <div class="wrap intro-box"><span class="book-mark">▤</span><div><h2>Selamat Datang</h2><p>Media digital untuk membaca rangkaian Manaqib Syeh Abdul Qodir Al-Jailani dan bacaan pendukungnya.</p></div></div>
+</section>
+
+<section id="daftar" class="reading-section">
+  <div class="wrap reading-layout">
+    <aside class="list-panel">
+      <div class="panel-heading"><span class="heading-icon">▤</span><div><h2>Daftar Bacaan</h2><p>Pilih bacaan untuk mulai membaca</p></div></div>
+      <div id="cards" class="cards"></div>
+    </aside>
+    <section id="bacaan" class="reader-panel">
+      <div class="reading-head">
+        <div><p class="eyebrow green">HALAMAN BACAAN</p><h2 id="title">Bacaan Hadroh</h2></div>
+        <button class="back-button" id="back" type="button">Daftar Isi</button>
       </div>
-      <button class="btn small" id="back">Daftar Isi</button>
-    </div>
-    <div class="tools">
-      <button id="minus">A−</button>
-      <span>Ukuran teks</span>
-      <button id="plus">A+</button>
-      <button id="night">Mode Malam</button>
-    </div>
-    <article id="content">
-      <p class="placeholder">Tempat isi bacaan akan ditambahkan di sini.</p>
-    </article>
-    <div class="pager">
-      <button class="btn outline" id="prev">← Sebelumnya</button>
-      <button class="btn" id="next">Berikutnya →</button>
-    </div>
+      <div class="tools" aria-label="Kontrol bacaan">
+        <span>Ukuran teks</span>
+        <button id="minus" type="button" aria-label="Perkecil teks">A−</button>
+        <button id="plus" type="button" aria-label="Perbesar teks">A+</button>
+      </div>
+      <article id="content"><p class="placeholder">Tempat isi bacaan akan ditambahkan di sini.</p></article>
+      <div class="pager"><button class="pager-button" id="prev" type="button">← Sebelumnya</button><button class="pager-button primary" id="next" type="button">Berikutnya →</button></div>
+    </section>
   </div>
 </section>
-</main>
 
-<footer>
-  <b>Manaqib Syeh Abdul Qodir Al-Jailani</b>
-  <p>Pondok Pesantren Manbaul Hikmah</p>
-  <small>© <span id="year"></span> Manbaul Hikmah</small>
-</footer>
+<section id="tentang" class="about-section"><div class="wrap"><h2>Tentang Manbaul Hikmah</h2><p>Pondok Pesantren Manbaul Hikmah · Luwungragi · Brebes · Jawa Tengah</p></div></section>
+</main>
+<footer><div class="wrap footer-inner"><div><strong>Pondok Pesantren Manbaul Hikmah</strong><span>Luwungragi · Brebes · Jawa Tengah</span></div><div class="footer-quote">“Bersama Al-Qur’an, Meraih Ridha Allah”</div><div>© <span id="year"></span> Manbaul Hikmah<br>Semua hak dilindungi</div></div></footer>
 <script src="script.js"></script>
 </body>
 </html>

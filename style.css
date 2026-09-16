@@ -341,3 +341,30 @@
 @media (min-width:1101px){
   .nav > a.psb{display:none !important;}
 }
+
+/* V20: mobile institution cards slide horizontally */
+@media (max-width: 767px) {
+  .institution-data-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 14px !important;
+    padding: 4px 4px 16px !important;
+    margin-right: -4px !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .institution-data-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .institution-data-grid > .institution-data-card {
+    flex: 0 0 86% !important;
+    width: 86% !important;
+    min-width: 0 !important;
+    scroll-snap-align: start;
+  }
+}

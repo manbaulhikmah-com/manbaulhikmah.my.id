@@ -335,3 +335,9 @@
     scroll-snap-align: start;
   }
 }
+
+
+/* Hide PSB on desktop only; keep it visible on mobile */
+@media (min-width:1101px){
+  .nav > a.psb{display:none !important;}
+}

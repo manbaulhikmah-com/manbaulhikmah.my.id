@@ -1,1 +1,97 @@
-const items=['Bacaan Hadroh','Surat Yasin','Surat Al-Fath','Surat Al-Waqi’ah','Surat Al-Mulk','Surat Asy-Syam','Surat Al-Insyirah','Surat Al-Qadr','Surat Az-Zalzalah','Surat An-Nasr','Bacaan Tahlil Manaqib','Doa Manaqib'];let current=0,size=1.1;const cards=document.querySelector('#cards'),title=document.querySelector('#title'),content=document.querySelector('#content');items.forEach((name,i)=>{const el=document.createElement('div');el.className='card';el.innerHTML=`<div class="num">${String(i+1).padStart(2,'0')}</div><h3>${name}</h3><p>Bagian bacaan ${name}.</p><button>Baca Sekarang →</button>`;el.querySelector('button').onclick=()=>open(i);cards.appendChild(el)});function open(i){current=(i+items.length)%items.length;title.textContent=items[current];content.innerHTML=`<p class="placeholder">Tempat isi <b>${items[current]}</b> akan ditambahkan di sini.</p>`;document.querySelector('#bacaan').scrollIntoView({behavior:'smooth'})}document.querySelector('#back').onclick=()=>document.querySelector('#daftar').scrollIntoView({behavior:'smooth'});document.querySelector('#prev').onclick=()=>open(current-1);document.querySelector('#next').onclick=()=>open(current+1);document.querySelector('#minus').onclick=()=>{size=Math.max(.9,size-.1);content.style.fontSize=size+'rem'};document.querySelector('#plus').onclick=()=>{size=Math.min(2,size+.1);content.style.fontSize=size+'rem'};document.querySelector('#night').onclick=()=>document.body.classList.toggle('dark');document.querySelector('#menu').onclick=()=>document.querySelector('nav').classList.toggle('open');document.querySelector('#year').textContent=new Date().getFullYear();open(0);
+const readings = [
+  "Bacaan Hadroh",
+  "Surat Yasin",
+  "Surat Al-Fath",
+  "Surat Al-Waqi’ah",
+  "Surat Al-Mulk",
+  "Surat Asy-Syam",
+  "Surat Al-Insyirah",
+  "Surat Al-Qadr",
+  "Surat Az-Zalzalah",
+  "Surat An-Nasr",
+  "Bacaan Tahlil Manaqib",
+  "Doa Manaqib"
+];
+
+const cards = document.getElementById("cards");
+const title = document.getElementById("title");
+const content = document.getElementById("content");
+const bacaanSection = document.getElementById("bacaan");
+
+let currentIndex = 0;
+let fontSize = 28;
+
+readings.forEach((name, index) => {
+  const card = document.createElement("button");
+
+  card.className = "reading-card";
+  card.innerHTML = `
+    <span>${String(index + 1).padStart(2, "0")}</span>
+    <strong>${name}</strong>
+    <small>Klik untuk membaca</small>
+  `;
+
+  card.addEventListener("click", () => {
+    currentIndex = index;
+    showReading();
+    bacaanSection.scrollIntoView({ behavior: "smooth" });
+  });
+
+  cards.appendChild(card);
+});
+
+function showReading() {
+  title.textContent = readings[currentIndex];
+
+  content.innerHTML = `
+    <p class="placeholder">
+      Tempat isi ${readings[currentIndex]} akan ditambahkan di sini.
+    </p>
+  `;
+
+  document.getElementById("prev").disabled = currentIndex === 0;
+  document.getElementById("next").disabled =
+    currentIndex === readings.length - 1;
+}
+
+document.getElementById("back").addEventListener("click", () => {
+  document.getElementById("daftar").scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+document.getElementById("prev").addEventListener("click", () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    showReading();
+  }
+});
+
+document.getElementById("next").addEventListener("click", () => {
+  if (currentIndex < readings.length - 1) {
+    currentIndex++;
+    showReading();
+  }
+});
+
+document.getElementById("minus").addEventListener("click", () => {
+  fontSize = Math.max(18, fontSize - 2);
+  content.style.fontSize = `${fontSize}px`;
+});
+
+document.getElementById("plus").addEventListener("click", () => {
+  fontSize = Math.min(50, fontSize + 2);
+  content.style.fontSize = `${fontSize}px`;
+});
+
+document.getElementById("night").addEventListener("click", () => {
+  document.body.classList.toggle("night-mode");
+});
+
+document.getElementById("menu").addEventListener("click", () => {
+  document.querySelector("nav").classList.toggle("show");
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+showReading();

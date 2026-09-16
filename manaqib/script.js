@@ -131,7 +131,7 @@ function showReading() {
 
   if (currentIndex === 1) {
     content.innerHTML = `<div class="arabic-text">${yasinText}</div>`;
-    content.style.setProperty("--size", `${fontSize}px`);
+    content.style.fontSize = `${fontSize}px`;
   } else {
     content.innerHTML = `
       <p class="placeholder">
@@ -159,17 +159,28 @@ document.getElementById("next").addEventListener("click", () => {
 });
 document.getElementById("minus").addEventListener("click", () => {
   fontSize = Math.max(18, fontSize - 2);
-  content.style.setProperty("--size", `${fontSize}px`);
+  content.style.fontSize = `${fontSize}px`;
 });
 document.getElementById("plus").addEventListener("click", () => {
   fontSize = Math.min(50, fontSize + 2);
-  content.style.setProperty("--size", `${fontSize}px`);
+  content.style.fontSize = `${fontSize}px`;
 });
 document.getElementById("night").addEventListener("click", () => {
   document.body.classList.toggle("night-mode");
 });
-document.getElementById("menu").addEventListener("click", () => {
-  document.querySelector("nav").classList.toggle("show");
+const menuButton = document.getElementById("menu");
+const siteNav = document.querySelector(".site-header nav");
+menuButton.addEventListener("click", () => {
+  const isOpen = siteNav.classList.toggle("show");
+  menuButton.setAttribute("aria-expanded", String(isOpen));
+  menuButton.setAttribute("aria-label", isOpen ? "Tutup menu" : "Buka menu");
+});
+siteNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    siteNav.classList.remove("show");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Buka menu");
+  });
 });
 document.getElementById("year").textContent = new Date().getFullYear();
 showReading();

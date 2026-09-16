@@ -1,7 +1,6 @@
 const readings = [
   "Bacaan Hadroh",
   "Surat Yasin",
-  "Surat Al-Fath",
   "Surat Al-Waqi’ah",
   "Surat Al-Mulk",
   "Surat Asy-Syam",
@@ -229,8 +228,6 @@ function showReading() {
   title.textContent = readings[currentIndex];
 
   if (currentIndex === 1) {
-    content.innerHTML = `<div class="arabic-text">${yasinText}</div>`;
-  } else if (currentIndex === 2) {
     content.innerHTML = `<div class="arabic-text">${waqiahText}</div>`;
   } else {
     content.innerHTML = `

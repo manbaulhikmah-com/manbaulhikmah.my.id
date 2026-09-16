@@ -65,3 +65,14 @@
   .brand-copy small{font-size:9px;letter-spacing:.8px}
   .brand-copy em{font-size:10px;margin-top:3px}
 }
+
+
+/* Mobile reading visibility fix */
+#bacaan { min-width: 0; }
+#content { display: block; visibility: visible; opacity: 1; }
+#content .arabic-text { display: block; width: 100%; }
+@media (max-width:760px){
+  .reader-panel { min-width: 0; overflow: visible; }
+  #content { width: 100%; min-width: 0; max-width: 100%; overflow-x: hidden; word-break: normal; }
+  #content .arabic-text { overflow-wrap: anywhere; }
+}

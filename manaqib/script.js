@@ -22,11 +22,11 @@ let currentIndex = 0;
 let fontSize = 28;
 
 const yasinText = `
-      <p class="ayah-number">1</p>
+      <p class="ayah-number"> </p>
       <p>يٰسۤۚ ۝١</p>
-      <p class="ayah-number">2</p>
+      <p class="ayah-number"> </p>
       <p>وَالْقُرْاٰنِ الْحَكِيْمِۙ ۝٢</p>
-      <p class="ayah-number">3</p>
+      <p class="ayah-number"> </p>
       <p>اِنَّكَ لَمِنَ الْمُرْسَلِيْنَۙ ۝٣</p>
       <p class="ayah-number">4</p>
       <p>عَلٰى صِرَاطٍ مُّسْتَقِيْمٍۗ ۝٤‘</p>

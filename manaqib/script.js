@@ -288,14 +288,11 @@ const SURAT_AL_INSYIRAH = `
 `;
 
 const SURAT_AL_QADR = `
-      <p>اَلَمْ نَشْرَحْ لَكَ صَدْرَكَۙ ۝١</p>
-      <p>وَوَضَعْنَا عَنْكَ وِزْرَكَۙ ۝٢</p>
-      <p>الَّذِيْٓ اَنْقَضَ ظَهْرَكَۙ ۝٣</p>
-      <p>وَرَفَعْنَا لَكَ ذِكْرَكَۗ ۝٤</p>
-      <p>فَاِنَّ مَعَ الْعُسْرِ يُسْرًاۙ ۝٥</p>
-      <p>اِنَّ مَعَ الْعُسْرِ يُسْرًاۗ ۝٦</p>
-      <p>فَاِذَا فَرَغْتَ فَانْصَبْۙ ۝٧</p>
-      <p>وَاِلٰى رَبِّكَ فَارْغَبْࣖ ۝٨</p>
+      <p>اِنَّآ اَنْزَلْنٰهُ فِيْ لَيْلَةِ الْقَدْرِ ۝١</p>
+      <p>وَمَآ اَدْرٰىكَ مَا لَيْلَةُ الْقَدْرِ ۗ ۝٢</p>
+      <p>لَيْلَةُ الْقَدْرِ ەۙ خَيْرٌ مِّنْ اَلْفِ شَهْرٍ ۗ ۝٣</p>
+      <p>تَنَزَّلُ الْمَلٰۤىِٕكَةُ وَالرُّوْحُ فِيْهَا بِاِذْنِ رَبِّهِمْ ۚ مِنْ كُلِّ اَمْرٍ ۛ ۝٤</p>
+      <p>سَلٰمٌ ۛ هِيَ حَتّٰى مَطْلَعِ الْفَجْرِࣖ ۝</p>
 `;
 
 const SURAT_AZ_ZALZALAH = `
@@ -369,7 +366,11 @@ function showReading() {
   const selectedContent = suratContents[readings[currentIndex]];
 
   if (selectedContent) {
-    content.innerHTML = `<div class="arabic-text">${selectedContent}</div>`;
+    const isSurat = readings[currentIndex].startsWith("Surat ");
+    const basmalah = isSurat
+      ? '<p style="text-align: center; direction: rtl;">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>'
+      : "";
+    content.innerHTML = `<div class="arabic-text">${basmalah}${selectedContent}</div>`;
     content.style.fontSize = `${fontSize}px`;
   } else {
     content.innerHTML = `
